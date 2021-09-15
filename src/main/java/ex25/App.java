@@ -1,4 +1,4 @@
-package ex24;
+package ex25;
 
 import java.util.Scanner;
 
@@ -50,7 +50,7 @@ public class App {
         else if (letterCount > 0 && digitCount > 0 && password.length() >= 8)
             return 2;
 
-    return 0;
+        return 0;
 
     };
 
