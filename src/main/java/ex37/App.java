@@ -5,7 +5,6 @@ package ex37;
  *  Copyright 2021 zain yousaffuentes
  */
 
-// left to do: Use lists to store the characters you’ll use to generate the passwords instead of ascii ranges
 
 import java.util.Scanner;
 import java.util.Random;
