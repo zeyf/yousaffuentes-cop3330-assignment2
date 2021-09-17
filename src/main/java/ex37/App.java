@@ -19,39 +19,50 @@ public class App {
         Scanner s = new Scanner(System.in);
         Random r = new Random();
 
+        char [] specialchars = { '!', '@', '#', '$', '%', '^', '&', '*' };
+        char [] digits = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+        char [] letters = {
+                'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+                'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
+        };
+
         System.out.print("What's the minimum length? ");
         int minlength = s.nextInt();
         System.out.print("How many special characters? ");
-        int specialcharacters = s.nextInt();
+        int specialcharacterscount = s.nextInt();
         System.out.print("How many numbers? ");
-        int numbers = s.nextInt();
+        int numberscount = s.nextInt();
 
         char [] password = new char[minlength];
 
-        for (int x = 0; x < minlength; x++) {
-            char randomCharacter = (char) (r.nextInt(122 - 97 + 1) + 97);
-            password[x] = randomCharacter;
-        };
+        for (int x = 0; x < minlength; x++)
+            password[x] = letters[r.nextInt(letters.length)];
 
-        for (int x = 0; x < numbers; x++) {
-            password[r.nextInt(minlength)] = (char) (r.nextInt(57 - 48 + 1) + 48);
-        };
+        for (int x = 0; x < numberscount; x++) {
 
-        for (int x = 0; x < specialcharacters; x++) {
             int randomIndex = r.nextInt(minlength);
-            char randomSpecial = (char) (r.nextInt(47 - 33 + 1) + 33);
-            if (!Character.isDigit(password[randomIndex])) {
-                password[x] = randomSpecial;
-            } else {
+
+            if (Character.isDigit(password[randomIndex]))
                 while (Character.isDigit(password[randomIndex]))
                     randomIndex = r.nextInt(minlength);
-                password[randomIndex] = randomSpecial;
-            };
+
+            password[randomIndex] = digits[r.nextInt(digits.length)];
+
+        };
+
+        for (int x = 0; x < specialcharacterscount; x++) {
+            int randomIndex = r.nextInt(minlength);
+
+            if (Character.isDigit(password[randomIndex]))
+                while (Character.isDigit(password[randomIndex]) && !Character.isLetterOrDigit(password[randomIndex]))
+                    randomIndex = r.nextInt(minlength);
+
+            password[randomIndex] = specialchars[r.nextInt(specialchars.length)];
+
         };
 
         System.out.print(String.format("The new password is %s", String.valueOf(password)));
 
-    }
-
+    };
 
 }
