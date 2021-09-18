@@ -12,27 +12,41 @@ public class App {
 
     public static void main (String[] args) {
 
-        Scanner s = new Scanner(System.in);
-
-        int sum = 0;
-
-        for (int x = 0; x < 5; x++) {
-
-            System.out.println("Enter a number: ");
-            sum += s.nextInt();
-
-        };
-
-        System.out.println(
-                String.format(
-                        "The total is %d.",
-                        sum
-                )
-        );
+        int [] nums = collectNumbers();
+        System.out.println(calculateSum(nums));
 
     };
 
 
+    public static int[] collectNumbers() {
+
+        Scanner s = new Scanner(System.in);
+        int[] nums = new int[5];
+
+        for (int x = 0; x < nums.length; x++) {
+            System.out.print("Enter a number: ");
+            nums[x] = s.nextInt();
+        };
+
+        return nums;
+
+    };
+
+
+    public static String calculateSum(int [] nums) {
+
+        int sum = 0;
+
+        for (int x = 0; x < nums.length; x++)
+            sum += nums[x];
+
+        return createSumMessage(sum);
+
+    };
+
+    private static String createSumMessage(int sum) {
+        return String.format("The total is %d.", sum);
+    };
 
 
 }
