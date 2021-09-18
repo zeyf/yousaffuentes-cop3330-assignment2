@@ -3,6 +3,11 @@ package ex26;
 import java.util.Scanner;
 import java.lang.Math;
 
+/*
+ *  UCF COP3330 Fall 2021 Assignment 26 Solution
+ *  Copyright 2021 zain yousaffuentes
+ */
+
 public class App {
 
     public static void main (String[] args) {
@@ -12,7 +17,7 @@ public class App {
         System.out.println("What is your balance? ");
         double balance = s.nextDouble();
         System.out.println("What is the APR on the card (as a percent)? ");
-        double dailyrate = ((double) s.nextDouble()) / 100 / 365;
+        double dailyrate = s.nextDouble() / 100 / 365;
         System.out.println("What is the monthly payment you can make? ");
         int monthlypayment = s.nextInt();
 
