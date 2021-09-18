@@ -1,5 +1,6 @@
 package ex27;
 
+import java.util.Hashtable;
 import java.util.Scanner;
 
 /*
@@ -11,28 +12,34 @@ public class App {
 
     public static void main (String[] args) {
 
-        Scanner s = new Scanner(System.in);
-
-        System.out.println("Enter the first name");
-        String fname = s.nextLine();
-        System.out.println("Enter the last name");
-        String lname = s.nextLine();
-
-        System.out.println("Enter the ZIP code: ");
-        String zipcode = s.nextLine();
-
-        System.out.println("Enter the employee ID: ");
-        String id = s.nextLine();
-
-        validateInput(fname, lname, zipcode, id);
+        Hashtable<String, String> data = getData();
+        String validationStatusMessage = validateInput(data.get("fname"), data.get("lname"), data.get("zipcode"), data.get("id"));
+        System.out.print(validationStatusMessage);
 
     };
 
-    private static void validateInput(String fname, String lname, String zipcode, String id) {
+    public static Hashtable<String, String> getData() {
+        Scanner s = new Scanner(System.in);
+        Hashtable<String, String> data = new Hashtable<String, String>();
 
-        boolean fnameLengthValidity = validateNameType(fname),
+        System.out.print("Enter the first name ");
+        data.put("fname", s.nextLine());
+        System.out.print("Enter the last name ");
+        data.put("lname", s.nextLine());
+        System.out.print("Enter the ZIP code: ");
+        data.put("zipcode", s.nextLine());
+        System.out.print("Enter the employee ID: ");
+        data.put("id", s.nextLine());
+
+        return data;
+
+    };
+
+    public static String validateInput(String fname, String lname, String zipcode, String id) {
+
+        boolean fnameLengthValidity = validateNameLength(fname),
                 fnameExistenceValidity = validateNameExists(fname),
-                lnameLengthValidity = validateNameType(lname),
+                lnameLengthValidity = validateNameLength(lname),
                 lnameExistenceValidity = validateNameExists(lname),
                 zipCodeValidity = validateZipCode(zipcode),
                 idValidity = validateEmployeeID(id);
@@ -75,22 +82,24 @@ public class App {
             };
         };
 
-        System.out.println(String.format(
-                base.equals("") ? "There were no errors found." : base
-        ));
+        return createValidityMessage(base);
 
     };
 
-    private static boolean validateNameType(String name) {
+    private static String createValidityMessage(String messageAggregator) {
+        return messageAggregator.equals("") ? "There were no errors found." : messageAggregator;
+    };
+
+    public static boolean validateNameLength(String name) {
         // rules: must be filled in and more than two char long
-        return name.length() >= 2 ? true : false;
+        return name.length() >= 2;
     };
 
-    private static boolean validateNameExists(String name) {
+    public static boolean validateNameExists(String name) {
         return name.length() != 0 ? true: false;
     };
 
-    private static boolean validateZipCode(String zipcode) {
+    public static boolean validateZipCode(String zipcode) {
         char[] splitZipCode = zipcode.toCharArray();
 
         int digitCount = 0;
@@ -105,7 +114,7 @@ public class App {
 
     };
 
-    private static boolean validateEmployeeID(String id) {
+    public static boolean validateEmployeeID(String id) {
 
         if (id.length() > 7 || id.length() < 7) return false;
 
