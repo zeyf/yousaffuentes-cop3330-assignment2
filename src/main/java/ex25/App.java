@@ -10,24 +10,14 @@ import java.util.Scanner;
 public class App {
 
     public static void main (String[] args) {
-        Scanner s = new Scanner(System.in);
 
-        System.out.println("Enter the password: ");
-        String password = s.nextLine();
-
+        String password = getPassword();
         int passwordStrength = passwordValidator(password);
+        System.out.print(createPasswordStrengthMessage(passwordStrength, password));
 
-        String [] templates = new String[4];
-
-        templates[0] = "The password '%s' is a very weak password.";
-        templates[1] = "The password '%s' is a weak password.";
-        templates[2] = "The password '%s' is a strong password.";
-        templates[3] = "The password '%s' is a very strong password.";
-
-        System.out.println(String.format(templates[passwordStrength], password));
     };
 
-    private static int passwordValidator(String password) {
+    public static int passwordValidator(String password) {
 
         char[] splitPassword = password.toCharArray();
 
@@ -57,6 +47,28 @@ public class App {
             return 2;
 
         return 0;
+
+    };
+
+    public static String getPassword() {
+
+        Scanner s = new Scanner(System.in);
+        System.out.print("Enter the password: ");
+
+        return s.nextLine();
+
+    };
+
+    public static String createPasswordStrengthMessage(int strength, String password) {
+
+        String [] templates = {
+                "The password '%s' is a very weak password.",
+                "The password '%s' is a weak password.",
+                "The password '%s' is a strong password.",
+                "The password '%s' is a very strong password."
+        };
+
+        return String.format(templates[strength], password);
 
     };
 

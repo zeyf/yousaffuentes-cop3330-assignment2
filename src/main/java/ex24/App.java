@@ -11,24 +11,9 @@ public class App {
 
     public static void main (String [] args) {
 
-        Scanner s = new Scanner(System.in);
-
-        System.out.print("Enter two stings ans I'll you if they are anagrams:\n");
-
-        System.out.print("Enter the first string: ");
-        String str1 = s.nextLine();
-
-        System.out.print("Enter the second string: ");
-        String str2 = s.nextLine();
-
-        boolean anagramStatus = isAnagram(str1, str2);
-
-        System.out.println(
-                anagramStatus ?
-                String.format("\"%s\" and \"%s\" are anagrams.", str1, str2)
-                        :
-                        String.format("\"%s\" and \"%s\" are not anagrams.", str1, str2)
-        );
+        String [] strings = collectStrings();
+        boolean anagramStatus = isAnagram(strings[0], strings[1]);
+        System.out.println(createAnagramMessage(anagramStatus, strings[0], strings[1]));
 
     };
 
@@ -57,6 +42,31 @@ public class App {
 
         return anagramFlag;
 
+    };
+
+    public static String[] collectStrings() {
+
+        String[] strings = new String[2];
+        Scanner s = new Scanner(System.in);
+
+        System.out.print("Enter two strings ans I'll you if they are anagrams:\n");
+
+        for (int x = 0; x < strings.length; x++) {
+            if (x == 0) {
+                System.out.print("Enter the first string: ");
+                strings[x] = s.nextLine();
+            } else if (x == 1) {
+                System.out.print("Enter the second string: ");
+                strings[x] = s.nextLine();
+            };
+        };
+
+        return strings;
+
+    };
+
+    public static String createAnagramMessage(boolean anagramStatus, String str1, String str2) {
+        return anagramStatus ? String.format("\"%s\" and \"%s\" are anagrams.", str1, str2) : String.format("\"%s\" and \"%s\" are not anagrams.", str1, str2);
     };
 
 
