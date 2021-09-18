@@ -11,10 +11,17 @@ public class App {
 
         for (int x = 1; x <= 12; x++) {
             for (int y = 1; y <= 12; y++)
-                System.out.print(String.format("    %d", x * y));
-            System.out.println("\n");
+                System.out.print(createProductString(calculateProduct(x, y)));
+            System.out.print("\n");
         };
     };
 
+    public static int calculateProduct(int num1, int num2) {
+        return num1 * num2;
+    };
+
+    public static String createProductString(int product) {
+        return String.format("%5d", product);
+    };
 
 }

@@ -2,10 +2,6 @@ package ex28;
 
 import org.junit.Test;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-import java.util.Scanner;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 
