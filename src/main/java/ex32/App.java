@@ -30,43 +30,51 @@ public class App {
 
         while (keepPlaying) {
 
-            try {
                 System.out.print("Enter the difficulty level (1, 2, or 3): ");
                 difficulty = s.nextInt();
 
                 if (difficulty == 1)
-                    randomNumber = r.nextInt() % (difficulty1max - difficulty1min + 1) + difficulty1min;
+                    randomNumber = r.nextInt(difficulty1max - difficulty1min) + difficulty1min;
                 else if (difficulty == 2)
-                    randomNumber = r.nextInt() % (difficulty2max - difficulty2min + 1) + difficulty2min;
+                    randomNumber = r.nextInt(difficulty2max - difficulty2min) + difficulty2min;
                 else if (difficulty == 3)
-                    randomNumber = r.nextInt() % (difficulty3max - difficulty3min + 1) + difficulty3min;
+                    randomNumber = r.nextInt(difficulty3max - difficulty3min) % + difficulty3min;
 
                 System.out.print("i have my number. What's your guess? ");
 
                 int guessCount = 0, guess = 0;
 
-                // first guess
-                guess = s.nextInt();
-                guessCount++;
-
                 while (guess != randomNumber) {
-                    if (guess < randomNumber)
-                        System.out.print("Too low. Guess again: ");
-                    else if (guess > randomNumber)
-                        System.out.print("Too high. Guess again: ");
-                    else {
-                        System.out.print(String.format("You got it in %d guesses!", guessCount));
-                        break;
+
+                    try {
+
+                        guess = s.nextInt();
+                        guessCount++;
+
+                        if (guess < randomNumber)
+                            System.out.print("Too low. Guess again: ");
+                        else if (guess > randomNumber)
+                            System.out.print("Too high. Guess again: ");
+                        else {
+                            System.out.print(String.format("You got it in %d guesses!\n", guessCount));
+                            break;
+                        };
+
+                    } catch (InputMismatchException ex) {
+                        guessCount++;
                     };
 
-                    guess = s.nextInt();
-                    guessCount++;
                 };
 
-            } catch (InputMismatchException ex) {
-                s.next();
-                System.out.println("Enter numeric data.");
-            };
+
+
+            System.out.print("Do you wish to play again (y/n)? ");
+            String response = s.next();
+
+            if (response.charAt(0) == 'y')
+                continue;
+            else if (response.charAt(0) == 'n')
+                break;
 
         };
 
