@@ -12,37 +12,37 @@ public class App {
     public static void main (String args[]) {
 
         Scanner s = new Scanner(System.in);
-
         String [] employees = { "John Smith", "Jackie Jackson", "Chris Jones", "Amanda Cullen", "Jeremy Goodwin" };
-
-        for (int x = 0; x < employees.length; x++) {
-            if (x == 0)
-                System.out.print(String.format("There are %d employees:\n%s\n", employees.length, employees[x]));
-            else
-                System.out.println(String.format("%s", employees[x]));
-        };
 
         System.out.print("Enter an employee name to remove: ");
         String employeeToRemove = s.nextLine();
 
-        String [] newEmployees = new String[employees.length - 1];
+        String [] filteredEmployeeArray = filterEmployee(employees, employeeToRemove);
+        printEmployees(filteredEmployeeArray);
 
-        System.out.println(String.format("There are %d employees:", newEmployees.length));
+    };
 
-        for (int x = 0, y = 0; x < employees.length; x++) {
+    public static void printEmployees(String[] employees) {
 
-            if (employees[x].equals(employeeToRemove))
+        for (int x = 0; x < employees.length; x++)
+            if (x == 0)
+                System.out.print(String.format("There are %d employees:\n%s\n", employees.length, employees[x]));
+            else
+                System.out.println(employees[x]);
+
+    };
+
+    public static String[] filterEmployee(String[] employees, String employeeName) {
+
+        String[] newEmployeeArray = new String[employees.length - 1];
+
+        for (int x = 0, k = 0; x < employees.length; x++)
+            if (!employees[x].equals(employeeName))
+                newEmployeeArray[k++] = employees[x];
+            else
                 continue;
 
-            newEmployees[y] = employees[x];
-
-            System.out.print(
-                    x == 0 ? String.format("There are %d employees:\n%s\n", newEmployees.length, newEmployees[y++]) : String.format("%s\n", newEmployees[y++])
-            );
-
-        };
-
-
+        return newEmployeeArray;
 
     };
 
