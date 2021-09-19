@@ -22,7 +22,7 @@ public class App {
             System.out.print("Enter a name: ");
             String name = s.nextLine();
 
-            if (!name.equals(""))
+            if (checkNameExistence(name))
                 list.add(name);
             else
                 break;
@@ -31,8 +31,16 @@ public class App {
 
         int randomIndex = r.nextInt(list.size());
 
-        System.out.print(String.format("The winner is... %s.", list.get(randomIndex)));
+        System.out.print(createWinnerMessage(list, randomIndex));
 
+    };
+
+    public static String createWinnerMessage(ArrayList<String> list, int randomIndex) {
+        return String.format("The winner is... %s.", list.get(randomIndex));
+    };
+
+    public static boolean checkNameExistence(String name) {
+        return !name.equals("");
     };
 
 }
