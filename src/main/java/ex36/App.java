@@ -41,29 +41,13 @@ public class App {
 
         };
 
-        System.out.print("Numbers:");
+        printNumbers(list);
 
-        for (int x = 0; x < list.size(); x++) {
-            System.out.print(String.format(" %d", list.get(x)));
-            if (x != list.size() - 1)
-                System.out.print(",");
-            else
-                System.out.print("\n");
-        };
-
-        System.out.print(
-                String.format(
-                        "The average is %.1f\nThe minimum is %d\nThe maximum is %d\nThe standard deviation is %.2f",
-                        average(list),
-                        min(list),
-                        max(list),
-                        std(list)
-                )
-        );
+        System.out.print(createStatisticMetricsMessage(average(list), min(list), max(list), std(list)));
 
     };
 
-    private static int min(ArrayList<Integer> list) {
+    public static int min(ArrayList<Integer> list) {
 
         int min = list.get(0);
 
@@ -75,7 +59,7 @@ public class App {
 
     };
 
-    private static int max(ArrayList<Integer> list) {
+    public static int max(ArrayList<Integer> list) {
 
         int max = list.get(0);
 
@@ -87,7 +71,7 @@ public class App {
 
     };
 
-    private static double average(ArrayList<Integer> list) {
+    public static double average(ArrayList<Integer> list) {
 
         double sum = 0.0;
 
@@ -98,7 +82,7 @@ public class App {
 
     };
 
-    private static double std(ArrayList<Integer> list) {
+    public static double std(ArrayList<Integer> list) {
 
         double stdev = 0.0, mean = average(list);
 
@@ -108,6 +92,24 @@ public class App {
 
         return Math.sqrt(stdev / list.size());
 
+    };
+
+    public static void printNumbers(ArrayList<Integer> list) {
+
+        System.out.print("Numbers:");
+
+        for (int x = 0; x < list.size(); x++) {
+            System.out.print(String.format(" %d", list.get(x)));
+            if (x != list.size() - 1)
+                System.out.print(",");
+            else
+                System.out.print("\n");
+        };
+
+    };
+
+    public static String createStatisticMetricsMessage(double avg, int min, int max, double std) {
+        return String.format("The average is %.1f\nThe minimum is %d\nThe maximum is %d\nThe standard deviation is %.2f", avg, min, max, std);
     };
 
 }
