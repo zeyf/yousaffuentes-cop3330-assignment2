@@ -21,27 +21,10 @@ public class App {
 
                 System.out.print("Please enter your age: ");
                 int age = s.nextInt();
-                System.out.print("Please enter your resting heart rate");
+                System.out.print("Please enter your resting heart rate: ");
                 int restingHeartRate = s.nextInt();
 
-                System.out.print(
-                        String.format("Resting Pulse: %d\tAge: %d\n\nIntensity    | Rate   \n-------------|--------\n", restingHeartRate, age)
-                );
-
-                double cIntensity = 55;
-
-                while (cIntensity <= 95) {
-
-                    double cTestingHeartRate = (((220 - age) - restingHeartRate) * (cIntensity / 100)) + restingHeartRate;
-
-                    System.out.println(String.format(
-                            "%.0f%%          | %.0f bpm",
-                            cIntensity,
-                            cTestingHeartRate
-                    ));
-
-                    cIntensity += 5;
-                };
+                printTable(age, restingHeartRate);
 
                 validInput = true;
 
@@ -55,6 +38,33 @@ public class App {
         }
 
     };
+
+    public static int calculateTestingHeartRate(int age, int restingHeartRate, double cIntensity) {
+        return (int) Math.floor((((220 - age) - restingHeartRate) * (cIntensity / 100)) + restingHeartRate) + 1;
+    };
+
+    public static void printTable(int age, int restingHeartRate) {
+
+        System.out.print(
+                String.format("Resting Pulse: %d\tAge: %d\n\nIntensity    | Rate   \n-------------|--------\n", restingHeartRate, age)
+        );
+
+        double cIntensity = 55;
+
+        while (cIntensity <= 95) {
+
+            int cTestingHeartRate = calculateTestingHeartRate(age, restingHeartRate, cIntensity);
+
+            System.out.println(String.format(
+                    "%.0f%%          | %d bpm",
+                    cIntensity,
+                    cTestingHeartRate
+            ));
+
+            cIntensity += 5;
+        };
+    };
+
 
 
 
