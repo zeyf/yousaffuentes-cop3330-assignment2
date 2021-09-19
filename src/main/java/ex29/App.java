@@ -22,14 +22,9 @@ public class App {
             try {
                 System.out.println("What is the rate of return? ");
 
-                int rate = 72 / s.nextInt();
+                int monthsToDoubleInitialInvestment = calculateYearsToDoubleInvestment(s.nextInt());
 
-                System.out.println(
-                        String.format(
-                                "It will take %d years to double your initial investment.",
-                                rate
-                        )
-                );
+                System.out.println(createInvestmentMessage(monthsToDoubleInitialInvestment));
 
                 validInput = true;
 
@@ -40,6 +35,14 @@ public class App {
 
         };
 
+    };
+
+    public static int calculateYearsToDoubleInvestment(int rateofreturn) {
+        return 72 / rateofreturn;
+    };
+
+    public static String createInvestmentMessage(int rate) {
+        return String.format("It will take %d years to double your initial investment.", rate);
     };
 
 }
