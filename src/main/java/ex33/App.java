@@ -12,15 +12,20 @@ public class App {
 
     public static void main (String[] args) {
 
-        Scanner s = new Scanner(System.in);
         Random r = new Random();
-        int randomNumber = r.nextInt(3);
-        String [] templates = { "Yes", "No", "Ask again later." };
-
+        int randomIndex = r.nextInt(3);
         System.out.print("What's your question?\n> ");
+
+        Scanner s = new Scanner(System.in);
         String question = s.nextLine();
 
-        System.out.println(String.format("%s", templates[randomNumber]));
+        System.out.println(pickRandomTemplate(randomIndex));
+
+    };
+
+    public static String pickRandomTemplate(int randomIndex) {
+        String [] templates = { "Yes", "No", "Ask again later." };
+        return templates[randomIndex];
 
     };
 
