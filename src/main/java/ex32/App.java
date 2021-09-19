@@ -24,7 +24,6 @@ public class App {
                 difficulty2min = 1, difficulty2max = 100,
                 difficulty3min = 1, difficulty3max = 1000;
 
-        Random r = new Random();
 
         boolean keepPlaying = true;
 
@@ -34,13 +33,13 @@ public class App {
                 difficulty = s.nextInt();
 
                 if (difficulty == 1)
-                    randomNumber = r.nextInt(difficulty1max - difficulty1min) + difficulty1min;
+                    randomNumber = randInRange(difficulty1min, difficulty1max);
                 else if (difficulty == 2)
-                    randomNumber = r.nextInt(difficulty2max - difficulty2min) + difficulty2min;
+                    randomNumber = randInRange(difficulty2min, difficulty2max);
                 else if (difficulty == 3)
-                    randomNumber = r.nextInt(difficulty3max - difficulty3min) % + difficulty3min;
+                    randomNumber = randInRange(difficulty3min, difficulty3max);
 
-                System.out.print("i have my number. What's your guess? ");
+                System.out.print("I have my number. What's your guess? ");
 
                 int guessCount = 0, guess = 0;
 
@@ -71,13 +70,31 @@ public class App {
             System.out.print("Do you wish to play again (y/n)? ");
             String response = s.next();
 
-            if (response.charAt(0) == 'y')
+            boolean playAgainStatus = verifyPlayAgain(response);
+
+            if (playAgainStatus)
                 continue;
-            else if (response.charAt(0) == 'n')
+            else if (!playAgainStatus)
                 break;
 
         };
 
+    };
+
+
+    public static int randInRange(int min, int max) {
+        Random r = new Random();
+        return r.nextInt(max - min) + min;
+    };
+
+    public static boolean verifyPlayAgain(String response) {
+
+        if (response.charAt(0) == 'y')
+            return true;
+        else if (response.charAt(0) == 'n')
+            return false;
+
+        return false;
     };
 
 }
