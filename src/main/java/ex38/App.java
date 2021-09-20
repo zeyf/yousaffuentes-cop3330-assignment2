@@ -17,25 +17,18 @@ public class App {
 
         String [] splitNumChars = s.nextLine().split(" ");
 
-        int [] nums = new int[splitNumChars.length];
+        int []nums = new int[splitNumChars.length];
 
         for (int x = 0; x < nums.length; x++)
             nums[x] = Integer.parseInt(splitNumChars[x]);
 
-        int [] filteredEvens = filterEvenNumbers(nums);
+        int []filteredEvens = filterEvenNumbers(nums);
 
-        System.out.print("The even numbers are");
-
-        for (int x = 0; x < filteredEvens.length; x++) {
-            System.out.print(String.format(" %d", filteredEvens[x]));
-            if (x == filteredEvens.length - 1)
-                System.out.print(".");
-        };
-
+        printEvenNumbers(filteredEvens);
 
     };
 
-    private static int[] filterEvenNumbers(int[] initial) {
+    public static int[] filterEvenNumbers(int[] initial) {
 
         int evencount = 0;
 
@@ -50,6 +43,18 @@ public class App {
                 filtered[k++] = initial[x];
 
         return filtered;
+
+    };
+
+    private static void printEvenNumbers(int []filteredEvens) {
+
+        System.out.print("The even numbers are");
+
+        for (int x = 0; x < filteredEvens.length; x++) {
+            System.out.print(String.format(" %d", filteredEvens[x]));
+            if (x == filteredEvens.length - 1)
+                System.out.print(".");
+        };
 
     };
 

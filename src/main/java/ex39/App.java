@@ -15,6 +15,26 @@ public class App {
 
         ArrayList<Map<String, String>> employees = new ArrayList<Map<String, String>>();
 
+        loadKnownEmployees(employees);
+        sortEmployees(employees, "Last Name");
+        printSortedEmployees(employees);
+
+    };
+
+    public static void sortEmployees(ArrayList<Map<String, String>> employees, String byKey) {
+        employees.sort(Comparator.comparing(map-> map.get(byKey)));
+    }
+
+    public static void printSortedEmployees(ArrayList<Map<String, String>> employees) {
+
+        System.out.print(String.format("%20s|%20s|%20s\n\n", "Name", "Position", "Separation Date"));
+
+        for (int x = 0; x < employees.size(); x++)
+            System.out.println(String.format("%20s|%20s|%20s", employees.get(x).get("First Name") + " " + employees.get(x).get("Last Name"), employees.get(x).get("Position"), employees.get(x).get("Separation Date")));
+
+    };
+
+    public static void loadKnownEmployees(ArrayList<Map<String, String>> employees) {
         employees.add(Map.of(
                 "First Name", "John",
                 "Last Name", "Johnson",
@@ -56,14 +76,6 @@ public class App {
                 "Position", "Web Developer",
                 "Separation Date", "2015-12-18"
         ));
-
-        employees.sort(Comparator.comparing(map-> map.get("First Name")));
-
-        System.out.print(String.format("%20s|%20s|%20s\n\n", "Name", "Position", "Separation Date"));
-
-        for (int x = 0; x < employees.size(); x++)
-            System.out.println(String.format("%20s|%20s|%20s", employees.get(x).get("First Name") + " " + employees.get(x).get("Last Name"), employees.get(x).get("Position"), employees.get(x).get("Separation Date")));
-
-    };
+    }
 
 }

@@ -14,9 +14,7 @@ public class App {
 
     public static void main(String[] args) {
 
-
         Scanner s = new Scanner(System.in);
-        Random r = new Random();
 
         char [] specialchars = { '!', '@', '#', '$', '%', '^', '&', '*' };
         char [] digits = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
@@ -34,34 +32,59 @@ public class App {
 
         char [] password = new char[minlength];
 
-        for (int x = 0; x < minlength; x++)
-            password[x] = letters[r.nextInt(letters.length)];
+        fillWithLetters(password, letters);
+        integrateRandomNumbers(password, digits, numberscount);
+        integrateRandomSpecialCharacters(password, specialchars, specialcharacterscount);
 
-        for (int x = 0; x < numberscount; x++) {
+        System.out.print(createFinalPasswordMessage(password));
 
-            int randomIndex = r.nextInt(minlength);
+    };
+
+    public static void fillWithLetters (char []emptyPassword, char []letters) {
+
+        Random r = new Random();
+
+        for (int x = 0; x < emptyPassword.length; x++)
+            emptyPassword[x] = letters[r.nextInt(letters.length)];
+
+    };
+
+    public static void integrateRandomNumbers(char []password, char[]digits, int numbersToAddCount) {
+
+        Random r = new Random();
+
+        for (int x = 0; x < numbersToAddCount; x++) {
+
+            int randomIndex = r.nextInt(password.length);
 
             if (Character.isDigit(password[randomIndex]))
                 while (Character.isDigit(password[randomIndex]))
-                    randomIndex = r.nextInt(minlength);
+                    randomIndex = r.nextInt(password.length);
 
             password[randomIndex] = digits[r.nextInt(digits.length)];
 
         };
 
-        for (int x = 0; x < specialcharacterscount; x++) {
-            int randomIndex = r.nextInt(minlength);
+    };
 
-            if (Character.isDigit(password[randomIndex]))
-                while (Character.isDigit(password[randomIndex]) && !Character.isLetterOrDigit(password[randomIndex]))
-                    randomIndex = r.nextInt(minlength);
+    public static void integrateRandomSpecialCharacters(char []password, char []specialCharacters, int specialCharactersToAddCount) {
 
-            password[randomIndex] = specialchars[r.nextInt(specialchars.length)];
+        Random r = new Random();
+
+        for (int x = 0; x < specialCharactersToAddCount; x++) {
+            int randomIndex = r.nextInt(password.length);
+            if (Character.isDigit(password[randomIndex]) || !Character.isLetterOrDigit(password[randomIndex]))
+                while (Character.isDigit(password[randomIndex]) || !Character.isLetterOrDigit(password[randomIndex]))
+                    randomIndex = r.nextInt(password.length);
+
+            password[randomIndex] = specialCharacters[r.nextInt(specialCharacters.length)];
 
         };
 
-        System.out.print(String.format("The new password is %s", String.valueOf(password)));
-
     };
+
+    public static String createFinalPasswordMessage(char []password) {
+        return String.format("The new password is %s", String.valueOf(password));
+    }
 
 }
