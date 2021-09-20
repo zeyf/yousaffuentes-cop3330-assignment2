@@ -18,6 +18,42 @@ public class App {
 
         ArrayList<Map<String, String>> employees = new ArrayList<Map<String, String>>();
 
+        loadKnownEmployees(employees);
+        sortEmployees(employees, "Last Name");
+
+        System.out.print("Enter a search string: ");
+        String substr = s.nextLine();
+
+        printSubStringSearchFoundEmployees(employees, substr);
+
+    };
+
+    public static void printSubStringSearchFoundEmployees(ArrayList<Map<String, String>> employees, String substr) {
+
+        System.out.print("Results: \n\n");
+
+        System.out.print(String.format("%20s|%20s|%20s\n\n", "Name", "Position", "Separation Date"));
+
+        for (int x = 0; x < employees.size(); x++) {
+
+            boolean subStringCheckFirstName = subStringFind(employees.get(x).get("First Name"), substr),
+                    subStringCheckLastName = subStringFind(employees.get(x).get("Last Name"), substr);
+
+            if (subStringCheckFirstName || subStringCheckLastName)
+                System.out.println(String.format("%20s|%20s|%20s", employees.get(x).get("First Name") + " " + employees.get(x).get("Last Name"), employees.get(x).get("Position"), employees.get(x).get("Separation Date")));
+
+        };
+    };
+
+    public static boolean subStringFind(String string, String substr) {
+        return string.indexOf(substr) != -1;
+    };
+
+    public static void sortEmployees(ArrayList<Map<String, String>> employees, String byKey) {
+        employees.sort(Comparator.comparing(map-> map.get(byKey)));
+    }
+
+    public static void loadKnownEmployees(ArrayList<Map<String, String>> employees) {
         employees.add(Map.of(
                 "First Name", "John",
                 "Last Name", "Johnson",
@@ -59,26 +95,7 @@ public class App {
                 "Position", "Web Developer",
                 "Separation Date", "2015-12-18"
         ));
-
-        employees.sort(Comparator.comparing(map-> map.get("First Name")));
-
-        System.out.print("Enter a search string: ");
-        String substr = s.nextLine();
-
-        System.out.print("Results: \n\n");
-
-        System.out.print(String.format("%20s|%20s|%20s\n\n", "Name", "Position", "Separation Date"));
-
-        for (int x = 0; x < employees.size(); x++) {
-
-            int subStringCheckFirstName = employees.get(x).get("First Name").indexOf(substr),
-                    subStringCheckLastName = employees.get(x).get("Last Name").indexOf(substr);
-
-            if (subStringCheckFirstName != -1 || subStringCheckLastName != -1)
-                System.out.println(String.format("%20s|%20s|%20s", employees.get(x).get("First Name") + " " + employees.get(x).get("Last Name"), employees.get(x).get("Position"), employees.get(x).get("Separation Date")));
-
-        };
-
     };
+
 
 };
