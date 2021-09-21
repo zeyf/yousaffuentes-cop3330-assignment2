@@ -16,6 +16,7 @@ public class App {
 
         Scanner s = new Scanner(System.in);
 
+        // preknown digits, letters, and special characters to choose from for randomization
         char [] specialchars = { '!', '@', '#', '$', '%', '^', '&', '*' };
         char [] digits = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
         char [] letters = {
@@ -40,6 +41,7 @@ public class App {
 
     };
 
+    // fills a character array of n size with RANDOMIZED letters
     public static void fillWithLetters (char []emptyPassword, char []letters) {
 
         Random r = new Random();
@@ -49,6 +51,9 @@ public class App {
 
     };
 
+    /*
+    * integrates n RANDOM digit characters into the filled base letter char array.
+    * */
     public static void integrateRandomNumbers(char []password, char[]digits, int numbersToAddCount) {
 
         Random r = new Random();
@@ -67,6 +72,9 @@ public class App {
 
     };
 
+    /*
+     * integrates n RANDOM special characters into the filled base letter and/or random number integrated char array
+     * */
     public static void integrateRandomSpecialCharacters(char []password, char []specialCharacters, int specialCharactersToAddCount) {
 
         Random r = new Random();
@@ -83,6 +91,7 @@ public class App {
 
     };
 
+    // creates and returns a formatted string of the randomized password
     public static String createFinalPasswordMessage(char []password) {
         return String.format("The new password is %s", String.valueOf(password));
     }

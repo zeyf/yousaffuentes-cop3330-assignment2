@@ -15,6 +15,7 @@ public class App {
         Scanner s = new Scanner(System.in);
         boolean validInput = false;
 
+        // take in input while invalid until valid
         while (!validInput) {
 
             try {
@@ -39,10 +40,13 @@ public class App {
 
     };
 
+
+    // calculates the testing heart rate based on the age, restingheartrate and the current intensity
     public static int calculateTestingHeartRate(int age, int restingHeartRate, double cIntensity) {
         return (int) Math.floor((((220 - age) - restingHeartRate) * (cIntensity / 100)) + restingHeartRate) + 1;
     };
 
+    // prints the table from the cintensity from 55 to 95
     public static void printTable(int age, int restingHeartRate) {
 
         System.out.print(

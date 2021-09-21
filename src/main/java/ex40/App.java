@@ -28,6 +28,7 @@ public class App {
 
     };
 
+    // prints the employees that contain a substring within their first OR their last name, including both cases
     public static void printSubStringSearchFoundEmployees(ArrayList<Map<String, String>> employees, String substr) {
 
         System.out.print("Results: \n\n");
@@ -45,14 +46,17 @@ public class App {
         };
     };
 
+    // checks a string for a substring, returns a boolean of it is in the string
     public static boolean subStringFind(String string, String substr) {
         return string.indexOf(substr) != -1;
     };
 
+    // sorts the employees
     public static void sortEmployees(ArrayList<Map<String, String>> employees, String byKey) {
         employees.sort(Comparator.comparing(map-> map.get(byKey)));
     }
 
+    // loads in the known employees
     public static void loadKnownEmployees(ArrayList<Map<String, String>> employees) {
         employees.add(Map.of(
                 "First Name", "John",

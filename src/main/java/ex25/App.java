@@ -17,6 +17,9 @@ public class App {
 
     };
 
+    /* takes in a string of the password, splits it into a character array, counts the digits, letters, and special characters
+        and returns a value that will be used to select a template based on the passwords strength and attributes
+     */
     public static int passwordValidator(String password) {
 
         char[] splitPassword = password.toCharArray();
@@ -50,6 +53,7 @@ public class App {
 
     };
 
+    // rad sin the password and returns it
     public static String getPassword() {
 
         Scanner s = new Scanner(System.in);
@@ -59,6 +63,7 @@ public class App {
 
     };
 
+    // returns a formatted string to print the password and its strength based on a passwords strength
     public static String createPasswordStrengthMessage(int strength, String password) {
 
         String [] templates = {

@@ -17,7 +17,7 @@ public class App {
 
     };
 
-
+    // collects the 5 numbers entered and returns them
     public static int[] collectNumbers() {
 
         Scanner s = new Scanner(System.in);
@@ -32,7 +32,7 @@ public class App {
 
     };
 
-
+    // calculates the sum of the numbers and returns a formated stirng of the total/sum
     public static String calculateSum(int [] nums) {
 
         int sum = 0;

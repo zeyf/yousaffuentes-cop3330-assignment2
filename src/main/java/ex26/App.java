@@ -22,7 +22,7 @@ public class App {
 
     };
 
-
+    // collects the data of the balance, the apr, and the monthly payment and returns the hashtanle
     public static Hashtable<String, Double> getData() {
         Scanner s = new Scanner(System.in);
 
@@ -42,6 +42,7 @@ public class App {
 
     };
 
+    // creates and returns a formatted payment length left string to print
     public static String createPaymentMessage(int months) {
         return String.format("It will take you %d months to pay off this card.", months);
     };

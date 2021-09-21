@@ -16,6 +16,7 @@ public class App {
         Scanner s = new Scanner(System.in);
         ArrayList<Integer> list = new ArrayList<Integer>();
 
+        // keep going until "done" is entered
         while (true) {
 
             System.out.print("Enter a number: ");
@@ -28,6 +29,8 @@ public class App {
 
                 char [] lineSplit = line.toCharArray();
 
+                // if no integer is found, set isintegerflag to false and break,
+                // then continue to next loop. dont add to list no integer found
                 for (int x = 0; x < lineSplit.length && isIntegerFlag; x++) {
                     if (!Character.isDigit(lineSplit[x]))
                         isIntegerFlag = false;
@@ -47,6 +50,7 @@ public class App {
 
     };
 
+    // finds the minimum value in an integer list
     public static int min(ArrayList<Integer> list) {
 
         int min = list.get(0);
@@ -59,6 +63,7 @@ public class App {
 
     };
 
+    // finds the maximum value in an integer list
     public static int max(ArrayList<Integer> list) {
 
         int max = list.get(0);
@@ -71,6 +76,7 @@ public class App {
 
     };
 
+    // calculates the average/mean of a list of integers
     public static double average(ArrayList<Integer> list) {
 
         double sum = 0.0;
@@ -82,6 +88,7 @@ public class App {
 
     };
 
+    // calculates the standard deviation of a list of integeres
     public static double std(ArrayList<Integer> list) {
 
         double stdev = 0.0, mean = average(list);
@@ -94,6 +101,7 @@ public class App {
 
     };
 
+    // print the numbers within an array list
     public static void printNumbers(ArrayList<Integer> list) {
 
         System.out.print("Numbers:");
@@ -108,6 +116,7 @@ public class App {
 
     };
 
+    // creates a statistics metrics message by returning a formatted string of the calculated average, minimum, maximum, and standard deviation
     public static String createStatisticMetricsMessage(double avg, int min, int max, double std) {
         return String.format("The average is %.1f\nThe minimum is %d\nThe maximum is %d\nThe standard deviation is %.2f", avg, min, max, std);
     };

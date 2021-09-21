@@ -17,7 +17,7 @@ public class App {
 
     };
 
-    // assuming all lowercase
+    // compares each string by utilizing two frequency counters, one for each string and comparing the values in place of each frequency counter
     public static boolean isAnagram(String str1, String str2) {
         if (str1.length() != str2.length()) return false;
 
@@ -44,6 +44,7 @@ public class App {
 
     };
 
+    // Reads and Collects both strings and returns the strings
     public static String[] collectStrings() {
 
         String[] strings = new String[2];
@@ -65,6 +66,7 @@ public class App {
 
     };
 
+    // creates a formatted string to print
     public static String createAnagramMessage(boolean anagramStatus, String str1, String str2) {
         return anagramStatus ? String.format("\"%s\" and \"%s\" are anagrams.", str1, str2) : String.format("\"%s\" and \"%s\" are not anagrams.", str1, str2);
     };

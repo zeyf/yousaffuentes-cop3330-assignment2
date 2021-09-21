@@ -17,6 +17,7 @@ public class App {
         Scanner s = new Scanner(System.in);
         Random r = new Random();
 
+        // keep looping until no name is entered
         do {
 
             System.out.print("Enter a name: ");
@@ -35,10 +36,12 @@ public class App {
 
     };
 
+    // formats a string about who the randomly selected winner is based on the randomIndex
     public static String createWinnerMessage(ArrayList<String> list, int randomIndex) {
         return String.format("The winner is... %s.", list.get(randomIndex));
     };
 
+    // checks if a name exists, aka is or is not "" and returns a boolean
     public static boolean checkNameExistence(String name) {
         return !name.equals("");
     };

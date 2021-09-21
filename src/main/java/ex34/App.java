@@ -22,6 +22,7 @@ public class App {
 
     };
 
+    // prints the employees and the count
     public static void printEmployees(String[] employees) {
 
         for (int x = 0; x < employees.length; x++)
@@ -32,6 +33,7 @@ public class App {
 
     };
 
+    // creates a new array and filters out an employee based on their name, returning an array of strings excluding the employee removed
     public static String[] filterEmployee(String[] employees, String employeeName) {
 
         String[] newEmployeeArray = new String[employees.length - 1];

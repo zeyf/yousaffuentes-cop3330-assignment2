@@ -15,10 +15,12 @@ public class App {
 
         System.out.print("Enter a list of numbers, separated by spaces: ");
 
+        // takes in and split the string by a delimiter of " "
         String [] splitNumChars = s.nextLine().split(" ");
 
         int []nums = new int[splitNumChars.length];
 
+        // parseInts the split string array values into an integer array
         for (int x = 0; x < nums.length; x++)
             nums[x] = Integer.parseInt(splitNumChars[x]);
 
@@ -28,6 +30,8 @@ public class App {
 
     };
 
+    // filters the even numbers out by counting the number of even numbers and fills a new array with
+    // even numbers and then returns the filtered integer array of only even numbers
     public static int[] filterEvenNumbers(int[] initial) {
 
         int evencount = 0;
@@ -46,6 +50,7 @@ public class App {
 
     };
 
+    //print the list of the even numbers
     private static void printEvenNumbers(int []filteredEvens) {
 
         System.out.print("The even numbers are");

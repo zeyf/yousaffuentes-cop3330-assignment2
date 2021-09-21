@@ -23,6 +23,7 @@ public class App {
 
     };
 
+    // picks a string to print to the user based on the random Index chosen within the range of [0, 3)
     public static String pickRandomTemplate(int randomIndex) {
         String [] templates = { "Yes", "No", "Ask again later." };
         return templates[randomIndex];

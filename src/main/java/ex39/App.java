@@ -21,10 +21,12 @@ public class App {
 
     };
 
+    // sorts the employees
     public static void sortEmployees(ArrayList<Map<String, String>> employees, String byKey) {
         employees.sort(Comparator.comparing(map-> map.get(byKey)));
     }
 
+    // prints the sorted employees table
     public static void printSortedEmployees(ArrayList<Map<String, String>> employees) {
 
         System.out.print(String.format("%20s|%20s|%20s\n\n", "Name", "Position", "Separation Date"));
@@ -34,6 +36,7 @@ public class App {
 
     };
 
+    // loads in the known employees
     public static void loadKnownEmployees(ArrayList<Map<String, String>> employees) {
         employees.add(Map.of(
                 "First Name", "John",

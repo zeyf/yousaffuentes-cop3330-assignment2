@@ -17,6 +17,7 @@ public class App {
 
         boolean validInput = false;
 
+        // loops and catches invalid input until valid input is entered.
         while (!validInput) {
 
             try {
@@ -37,12 +38,14 @@ public class App {
 
     };
 
+    // calculates the years to double the investment and returns the years
     public static int calculateYearsToDoubleInvestment(int rateofreturn) {
         return 72 / rateofreturn;
     };
 
-    public static String createInvestmentMessage(int rate) {
-        return String.format("It will take %d years to double your initial investment.", rate);
+    // returns a formatted string with the number of years it will take to double the initial investment
+    public static String createInvestmentMessage(int years) {
+        return String.format("It will take %d years to double your initial investment.", years);
     };
 
 }

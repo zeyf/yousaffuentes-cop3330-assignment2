@@ -35,6 +35,10 @@ public class App {
 
     };
 
+    /*
+    * Calls the validateNameLength, validateNameExists, validateZipCode, and validateEmployeeID functions and based on it's values
+    * builds an error string (if there are errors) based on preknown messages for each condition and returns a string with the formatted string message
+    * */
     public static String validateInput(String fname, String lname, String zipcode, String id) {
 
         boolean fnameLengthValidity = validateNameLength(fname),
@@ -86,20 +90,27 @@ public class App {
 
     };
 
+    // creates an input validity message based on if the messageAggregator string is empty (indicates no errors) or not
     private static String createValidityMessage(String messageAggregator) {
         return messageAggregator.equals("") ? "There were no errors found." : messageAggregator;
     };
 
+    // checks the name length sufficient to be valid
     public static boolean validateNameLength(String name) {
         // rules: must be filled in and more than two char long
         return name.length() >= 2;
     };
 
+    // checks if no name (first or last) was entered
     public static boolean validateNameExists(String name) {
         return name.length() != 0 ? true: false;
     };
 
+    // validates the length and integrity of the data that is entered as a zipcode, checks the length and
+    // handles if there are non digits (false), returning a boolean
     public static boolean validateZipCode(String zipcode) {
+        if (zipcode.length() < 5 || zipcode.length() > 5) return false;
+
         char[] splitZipCode = zipcode.toCharArray();
 
         int digitCount = 0;
@@ -114,6 +125,8 @@ public class App {
 
     };
 
+    // validates the employeeID based on partitions of the data based on how an employee is meant to look.
+    // index 0 & 1 must be letters, 2 must be a -, and the other must be 4 letters. it checks if this is valid and the length of the ID
     public static boolean validateEmployeeID(String id) {
 
         if (id.length() > 7 || id.length() < 7) return false;
