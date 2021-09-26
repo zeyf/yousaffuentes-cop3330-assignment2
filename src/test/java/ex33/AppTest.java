@@ -1,5 +1,8 @@
 package ex33;
-
+/*
+ *  UCF COP3330 Fall 2021 Assignment 2 Solution
+ *  Copyright 2021 zain yousaffuentes
+ */
 import org.junit.Test;
 
 import java.util.Random;
@@ -7,7 +10,6 @@ import java.util.Random;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
-    App ex33 = new App();
 
     @Test
     public void pickRandomTemplate() {
@@ -21,9 +23,9 @@ class AppTest {
         String [] templates = { "Yes", "No", "Ask again later." };
 
         // true assertion
-        assertTrue(ex33.pickRandomTemplate(randomIndex1).equals(templates[randomIndex1]));
+        assertTrue(App.pickRandomTemplate(randomIndex1).equals(templates[randomIndex1]));
         // false assertion
-        assertFalse(ex33.pickRandomTemplate(randomIndex1).equals(templates[randomIndex2]));
+        assertFalse(App.pickRandomTemplate(randomIndex1).equals(templates[randomIndex2]));
 
     };
 

@@ -1,5 +1,8 @@
 package ex40;
-
+/*
+ *  UCF COP3330 Fall 2021 Assignment 2 Solution
+ *  Copyright 2021 zain yousaffuentes
+ */
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -8,7 +11,6 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
-    App ex40 = new App();
 
     @Test
     public void subStringFind() {
@@ -16,7 +18,7 @@ class AppTest {
         String mainString = "HelloWorld!", subString = "oWorl";
 
         // true assertion
-        assertEquals(true, ex40.subStringFind(mainString, subString));
+        assertEquals(true, App.subStringFind(mainString, subString));
 
     };
 
@@ -45,7 +47,7 @@ class AppTest {
                 "Last Name", "Johnson"
         ));
 
-        ex40.sortEmployees(unSortedEmployees, "Last Name");
+        App.sortEmployees(unSortedEmployees, "Last Name");
 
         boolean sortedOrder = true;
 

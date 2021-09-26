@@ -1,12 +1,10 @@
 package ex26;
 
 import java.util.Hashtable;
-import java.util.Map;
 import java.util.Scanner;
-import java.lang.Math;
 
 /*
- *  UCF COP3330 Fall 2021 Assignment 26 Solution
+ *  UCF COP3330 Fall 2021 Assignment 2 Solution
  *  Copyright 2021 zain yousaffuentes
  */
 

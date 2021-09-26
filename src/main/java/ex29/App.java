@@ -1,10 +1,9 @@
 package ex29;
 
 /*
- *  UCF COP3330 Fall 2021 Assignment 29 Solution
+ *  UCF COP3330 Fall 2021 Assignment 2 Solution
  *  Copyright 2021 zain yousaffuentes
  */
-
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

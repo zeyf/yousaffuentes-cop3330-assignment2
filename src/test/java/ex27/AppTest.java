@@ -1,20 +1,21 @@
 package ex27;
-
+/*
+ *  UCF COP3330 Fall 2021 Assignment 2 Solution
+ *  Copyright 2021 zain yousaffuentes
+ */
 import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
 
-    static App ex27 = new App();
-
     @Test
     public void validateEmployeeID() {
 
         // true assertion
-        assertTrue(ex27.validateEmployeeID("AA-1234"));
+        assertTrue(App.validateEmployeeID("AA-1234"));
         // false assertion
-        assertFalse(ex27.validateEmployeeID("AA-3"));
+        assertFalse(App.validateEmployeeID("AA-3"));
 
     };
 
@@ -22,9 +23,9 @@ class AppTest {
     public void validateNameExists() {
 
         // true assertion
-        assertTrue(ex27.validateNameExists("john"));
+        assertTrue(App.validateNameExists("john"));
         // false assertion
-        assertFalse(ex27.validateNameExists(""));
+        assertFalse(App.validateNameExists(""));
 
     };
 
@@ -32,9 +33,9 @@ class AppTest {
     public void validateNameLength() {
 
         // true assertion
-        assertTrue(ex27.validateNameLength("zain"));
+        assertTrue(App.validateNameLength("zain"));
         // false assertion
-        assertFalse(ex27.validateNameLength("a"));
+        assertFalse(App.validateNameLength("a"));
 
     };
 
@@ -42,11 +43,11 @@ class AppTest {
     public void validateZipCode() {
 
         // true assertion
-        assertTrue(ex27.validateZipCode("33196"));
+        assertTrue(App.validateZipCode("33196"));
         // false assertion 1
-        assertFalse(ex27.validateZipCode("33333333"));
+        assertFalse(App.validateZipCode("33333333"));
         // false assertion 2
-        assertFalse(ex27.validateZipCode("he24955k"));
+        assertFalse(App.validateZipCode("he24955k"));
 
     };
 
@@ -54,9 +55,9 @@ class AppTest {
     public void validateInput() {
 
         // true assertion
-        assertEquals("There were no errors found.", ex27.validateInput("john", "johnson", "32259", "AA-4324"));
+        assertEquals("There were no errors found.", App.validateInput("john", "johnson", "32259", "AA-4324"));
         // false assertion
-        assertNotEquals("There were no errors found.", ex27.validateInput("", "j", "322jf31", "AA-4324"));
+        assertNotEquals("There were no errors found.", App.validateInput("", "j", "322jf31", "AA-4324"));
 
     };
 }

@@ -1,22 +1,25 @@
 package ex24;
 
+/*
+ *  UCF COP3330 Fall 2021 Assignment 2 Solution
+ *  Copyright 2021 zain yousaffuentes
+ */
+
 import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
 
-    static App ex24 = new App();
-
     @Test
     public void isAnagram() {
 
         // same string assertion
-        assertTrue(ex24.isAnagram("hello", "hello"), "Same string (anagram) asserts as true.");
+        assertTrue(App.isAnagram("hello", "hello"), "Same string (anagram) asserts as true.");
         // anagram string, non same string assertion
-        assertTrue(ex24.isAnagram("hlloe", "elolh"), "Valid string anagrams asserts as true.");
+        assertTrue(App.isAnagram("hlloe", "elolh"), "Valid string anagrams asserts as true.");
         // non anagram, non same string assertion
-        assertFalse(ex24.isAnagram("hello", "hey"), "Non-anagram strings assert as false.");
+        assertFalse(App.isAnagram("hello", "hey"), "Non-anagram strings assert as false.");
 
     };
 

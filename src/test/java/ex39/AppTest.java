@@ -1,5 +1,8 @@
 package ex39;
-
+/*
+ *  UCF COP3330 Fall 2021 Assignment 2 Solution
+ *  Copyright 2021 zain yousaffuentes
+ */
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -8,8 +11,6 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
-
-    App ex39 = new App();
 
     @Test
     public void sortEmployees() {
@@ -36,7 +37,7 @@ class AppTest {
                 "Last Name", "Johnson"
         ));
 
-        ex39.sortEmployees(unSortedEmployees, "Last Name");
+        App.sortEmployees(unSortedEmployees, "Last Name");
 
         boolean sortedOrder = true;
 

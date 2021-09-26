@@ -1,5 +1,8 @@
 package ex36;
-
+/*
+ *  UCF COP3330 Fall 2021 Assignment 2 Solution
+ *  Copyright 2021 zain yousaffuentes
+ */
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -7,8 +10,8 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
-    private App ex36 = new App();
-    private int [] sampleNumbersArray = { 50, 53, 31, 32, 800, 4, 5, 2, 50, 332, 10 };
+
+    private final int [] sampleNumbersArray = { 50, 53, 31, 32, 800, 4, 5, 2, 50, 332, 10 };
 
 
     @Test
@@ -19,9 +22,9 @@ class AppTest {
             sampleNumbersList.add(sampleNumbersArray[x]);
 
         // true assertion
-        assertEquals(2, ex36.min(sampleNumbersList));
+        assertEquals(2, App.min(sampleNumbersList));
         // false assertion
-        assertNotEquals(4, ex36.min(sampleNumbersList));
+        assertNotEquals(4, App.min(sampleNumbersList));
 
     };
 
@@ -33,9 +36,9 @@ class AppTest {
             sampleNumbersList.add(sampleNumbersArray[x]);
 
         // true assertion
-        assertEquals(800, ex36.max(sampleNumbersList));
+        assertEquals(800, App.max(sampleNumbersList));
         // false assertion
-        assertNotEquals(4, ex36.max(sampleNumbersList));
+        assertNotEquals(4, App.max(sampleNumbersList));
 
     };
 
@@ -53,9 +56,9 @@ class AppTest {
         average = sum / sampleNumbersList.size();
 
         // true assertion
-        assertEquals(average, ex36.average(sampleNumbersList));
+        assertEquals(average, App.average(sampleNumbersList));
         // false assertion
-        assertNotEquals(4, ex36.average(sampleNumbersList));
+        assertNotEquals(4, App.average(sampleNumbersList));
 
     };
 
@@ -81,9 +84,9 @@ class AppTest {
         finalstd = Math.sqrt(stdev/sampleNumbersList.size());
 
         // true assertion
-        assertEquals(finalstd, ex36.std(sampleNumbersList));
+        assertEquals(finalstd, App.std(sampleNumbersList));
         // false assertion
-        assertNotEquals(50, ex36.std(sampleNumbersList));
+        assertNotEquals(50, App.std(sampleNumbersList));
 
 
     };

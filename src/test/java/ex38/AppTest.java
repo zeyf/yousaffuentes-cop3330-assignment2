@@ -1,13 +1,13 @@
 package ex38;
-
+/*
+ *  UCF COP3330 Fall 2021 Assignment 2 Solution
+ *  Copyright 2021 zain yousaffuentes
+ */
 import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
-
-    App ex38 = new App();
-
 
     @Test
     public void filterEvenNumbers() {
@@ -16,7 +16,7 @@ class AppTest {
         int []expectedFilteredEvenNumbers = { 22, 10, 16 };
 
         // true assertion
-        assertArrayEquals(expectedFilteredEvenNumbers, ex38.filterEvenNumbers(sampleNumbers));
+        assertArrayEquals(expectedFilteredEvenNumbers, App.filterEvenNumbers(sampleNumbers));
 
     };
 

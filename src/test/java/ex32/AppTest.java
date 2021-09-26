@@ -1,17 +1,19 @@
 package ex32;
-
+/*
+ *  UCF COP3330 Fall 2021 Assignment 2 Solution
+ *  Copyright 2021 zain yousaffuentes
+ */
 import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
-    App ex32 = new App();
 
     @Test
     public void randInRange() {
 
         int min = 10, max = 50,
-                randomInRange = ex32.randInRange(min, max);
+                randomInRange = App.randInRange(min, max);
 
         // true assertion
         assertTrue(randomInRange >= 10 && randomInRange <= 50);
@@ -27,11 +29,11 @@ class AppTest {
         String YES = "y", NO = "n";
 
         // true assertion
-        assertTrue(ex32.verifyPlayAgain(YES));
+        assertTrue(App.verifyPlayAgain(YES));
         // true assertion 2
-        assertFalse(ex32.verifyPlayAgain(NO));
+        assertFalse(App.verifyPlayAgain(NO));
         // false assertion
-        assertFalse(ex32.verifyPlayAgain("D"));
+        assertFalse(App.verifyPlayAgain("D"));
 
     };
 }

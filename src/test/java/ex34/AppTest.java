@@ -1,11 +1,14 @@
 package ex34;
-
+/*
+ *  UCF COP3330 Fall 2021 Assignment 2 Solution
+ *  Copyright 2021 zain yousaffuentes
+ */
 import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
-    App ex34 = new App();
+
 
     @Test
     public void filterEmployee() {
@@ -16,9 +19,9 @@ class AppTest {
         String [] postFilteredEmployeees2 = { "John", "Zain", "Michael", "Lionel", "Cristiano" }; // Drake is removed
 
         // true assertion
-        assertArrayEquals(postFilteredEmployeees1, ex34.filterEmployee(preFilteredEmployees, employeeToRemove1));
+        assertArrayEquals(postFilteredEmployeees1, App.filterEmployee(preFilteredEmployees, employeeToRemove1));
         // true assertion 2
-        assertArrayEquals(postFilteredEmployeees2, ex34.filterEmployee(preFilteredEmployees, employeeToRemove2));
+        assertArrayEquals(postFilteredEmployeees2, App.filterEmployee(preFilteredEmployees, employeeToRemove2));
 
 
     };

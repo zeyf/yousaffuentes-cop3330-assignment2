@@ -1,17 +1,20 @@
 package ex37;
-
+/*
+ *  UCF COP3330 Fall 2021 Assignment 2 Solution
+ *  Copyright 2021 zain yousaffuentes
+ */
 import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
     final int SIZE = 10;
-    int numbersToAddCount = 3, specialCharactersToAddCount = 4;
-    App ex37 = new App();
+    final int numbersToAddCount = 3, specialCharactersToAddCount = 4;
+
     char [] password = new char[SIZE];
-    char [] specialchars = { '!', '@', '#', '$', '%', '^', '&', '*' };
-    char [] digits = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
-    char [] letters = {
+    final char [] specialchars = { '!', '@', '#', '$', '%', '^', '&', '*' };
+    final char [] digits = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+    final char [] letters = {
             'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
             'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
     };
@@ -19,7 +22,7 @@ class AppTest {
     @Test
     public void fillWithLetters() {
 
-        ex37.fillWithLetters(password, letters);
+        App.fillWithLetters(password, letters);
 
         int letterCount = 0;
 
@@ -36,8 +39,8 @@ class AppTest {
     @Test
     public void integrateRandomNumbers() {
 
-        ex37.fillWithLetters(password, letters);
-        ex37.integrateRandomNumbers(password, digits, numbersToAddCount);
+        App.fillWithLetters(password, letters);
+        App.integrateRandomNumbers(password, digits, numbersToAddCount);
 
         int numbersFound = 0;
 
@@ -53,9 +56,9 @@ class AppTest {
     @Test
     public void integrateSpecialCharacters() {
 
-        ex37.fillWithLetters(password, letters);
-        ex37.integrateRandomNumbers(password, digits, numbersToAddCount);
-        ex37.integrateRandomSpecialCharacters(password, specialchars, specialCharactersToAddCount);
+        App.fillWithLetters(password, letters);
+        App.integrateRandomNumbers(password, digits, numbersToAddCount);
+        App.integrateRandomSpecialCharacters(password, specialchars, specialCharactersToAddCount);
 
         int specialCharactersFound = 0;
 
