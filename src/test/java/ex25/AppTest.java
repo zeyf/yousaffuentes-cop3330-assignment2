@@ -1,14 +1,15 @@
 package ex25;
 
 import org.junit.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
-public class AppTest {
+class AppTest {
 
     static App ex25 = new App();
 
     @Test
-    public void test_passwordValidator() {
+    public void passwordValidator() {
 
 
         String[] samplePasswords = {
@@ -37,5 +38,4 @@ public class AppTest {
         assertNotEquals(ex25.passwordValidator(samplePasswords[3]), 2);
 
     };
-
 }

@@ -1,14 +1,15 @@
 package ex27;
 
 import org.junit.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
-public class AppTest {
+class AppTest {
 
     static App ex27 = new App();
 
     @Test
-    public void test_validateEmployeeID() {
+    public void validateEmployeeID() {
 
         // true assertion
         assertTrue(ex27.validateEmployeeID("AA-1234"));
@@ -18,7 +19,7 @@ public class AppTest {
     };
 
     @Test
-    public void test_validateNameExists() {
+    public void validateNameExists() {
 
         // true assertion
         assertTrue(ex27.validateNameExists("john"));
@@ -28,7 +29,7 @@ public class AppTest {
     };
 
     @Test
-    public void test_validateNameLength() {
+    public void validateNameLength() {
 
         // true assertion
         assertTrue(ex27.validateNameLength("zain"));
@@ -38,7 +39,7 @@ public class AppTest {
     };
 
     @Test
-    public void test_validateZipCode() {
+    public void validateZipCode() {
 
         // true assertion
         assertTrue(ex27.validateZipCode("33196"));
@@ -50,7 +51,7 @@ public class AppTest {
     };
 
     @Test
-    public void test_validateInput() {
+    public void validateInput() {
 
         // true assertion
         assertEquals("There were no errors found.", ex27.validateInput("john", "johnson", "32259", "AA-4324"));
@@ -58,5 +59,4 @@ public class AppTest {
         assertNotEquals("There were no errors found.", ex27.validateInput("", "j", "322jf31", "AA-4324"));
 
     };
-
 }

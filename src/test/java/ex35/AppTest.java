@@ -7,12 +7,11 @@ import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class AppTest {
-
+class AppTest {
     App ex35 = new App();
 
     @Test
-    public void test_checkNameExistence() {
+    public void checkNameExistence() {
 
         String validName = "Zain", invalidName = "";
 
@@ -25,7 +24,7 @@ public class AppTest {
     };
 
     @Test
-    public void test_createWinnerMessage() {
+    public void createWinnerMessage() {
 
         ArrayList<String> list = new ArrayList<String>();
         Random r = new Random();

@@ -1,15 +1,15 @@
 package ex29;
 
 import org.junit.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
-
-public class AppTest {
+class AppTest {
 
     App ex29 = new App();
 
     @Test
-    public void test_calculateYearsToDoubleInvestment() {
+    public void calculateYearsToDoubleInvestment() {
 
         // true assertion 1
         assertEquals(18, ex29.calculateYearsToDoubleInvestment(4));

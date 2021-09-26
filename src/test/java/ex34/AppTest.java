@@ -1,15 +1,14 @@
 package ex34;
 
 import org.junit.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
-
-public class AppTest {
-
+class AppTest {
     App ex34 = new App();
 
     @Test
-    public void test_filterEmployee() {
+    public void filterEmployee() {
 
         String [] preFilteredEmployees = { "John", "Zain", "Michael", "Drake", "Lionel", "Cristiano" };
         String employeeToRemove1 = "Michael", employeeToRemove2 = "Drake";
@@ -23,5 +22,4 @@ public class AppTest {
 
 
     };
-
 }

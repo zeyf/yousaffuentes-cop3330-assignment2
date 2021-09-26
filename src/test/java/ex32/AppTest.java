@@ -1,14 +1,14 @@
 package ex32;
 
 import org.junit.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
-public class AppTest {
-
+class AppTest {
     App ex32 = new App();
 
     @Test
-    public void test_randInRange() {
+    public void randInRange() {
 
         int min = 10, max = 50,
                 randomInRange = ex32.randInRange(min, max);
@@ -22,7 +22,7 @@ public class AppTest {
     };
 
     @Test
-    public void test_verifyPlayAgain() {
+    public void verifyPlayAgain() {
 
         String YES = "y", NO = "n";
 
@@ -34,6 +34,4 @@ public class AppTest {
         assertFalse(ex32.verifyPlayAgain("D"));
 
     };
-
-
 }

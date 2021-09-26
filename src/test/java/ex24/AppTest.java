@@ -4,14 +4,12 @@ import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class AppTest {
+class AppTest {
 
     static App ex24 = new App();
 
     @Test
-    public void test_isAnagram() {
-
-
+    public void isAnagram() {
 
         // same string assertion
         assertTrue(ex24.isAnagram("hello", "hello"), "Same string (anagram) asserts as true.");

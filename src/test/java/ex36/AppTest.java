@@ -6,14 +6,13 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class AppTest {
-
+class AppTest {
     private App ex36 = new App();
     private int [] sampleNumbersArray = { 50, 53, 31, 32, 800, 4, 5, 2, 50, 332, 10 };
 
 
     @Test
-    public void test_min() {
+    public void min() {
 
         ArrayList<Integer> sampleNumbersList = new ArrayList<Integer>();
         for (int x = 0; x < sampleNumbersArray.length; x++)
@@ -27,7 +26,7 @@ public class AppTest {
     };
 
     @Test
-    public void test_max() {
+    public void max() {
 
         ArrayList<Integer> sampleNumbersList = new ArrayList<Integer>();
         for (int x = 0; x < sampleNumbersArray.length; x++)
@@ -41,7 +40,7 @@ public class AppTest {
     };
 
     @Test
-    public void test_average() {
+    public void average() {
 
         ArrayList<Integer> sampleNumbersList = new ArrayList<Integer>();
         for (int x = 0; x < sampleNumbersArray.length; x++)
@@ -61,7 +60,7 @@ public class AppTest {
     };
 
     @Test
-    public void test_std() {
+    public void std() {
 
         double sum = 0, average, stdev = 0, finalstd;
 
@@ -88,5 +87,4 @@ public class AppTest {
 
 
     };
-
 }

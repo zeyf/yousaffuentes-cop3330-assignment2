@@ -4,13 +4,11 @@ import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-
-public class AppTest {
-
+class AppTest {
     static App ex28 = new App();
 
     @Test
-    public void test_calculateSum() {
+    public void calculateSum() {
 
         int [] testArray = { 1, 2, 3, 4, 5 };
 
@@ -21,5 +19,4 @@ public class AppTest {
 
 
     };
-
 }

@@ -2,12 +2,9 @@ package ex37;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-
 import static org.junit.jupiter.api.Assertions.*;
 
-public class AppTest {
-
+class AppTest {
     final int SIZE = 10;
     int numbersToAddCount = 3, specialCharactersToAddCount = 4;
     App ex37 = new App();
@@ -20,7 +17,7 @@ public class AppTest {
     };
 
     @Test
-    public void test_fillWithLetters() {
+    public void fillWithLetters() {
 
         ex37.fillWithLetters(password, letters);
 
@@ -37,7 +34,7 @@ public class AppTest {
     };
 
     @Test
-    public void test_integrateRandomNumbers() {
+    public void integrateRandomNumbers() {
 
         ex37.fillWithLetters(password, letters);
         ex37.integrateRandomNumbers(password, digits, numbersToAddCount);
@@ -54,7 +51,7 @@ public class AppTest {
     };
 
     @Test
-    public void test_integrateSpecialCharacters() {
+    public void integrateSpecialCharacters() {
 
         ex37.fillWithLetters(password, letters);
         ex37.integrateRandomNumbers(password, digits, numbersToAddCount);
@@ -70,5 +67,4 @@ public class AppTest {
         assertEquals(specialCharactersToAddCount, specialCharactersFound);
 
     };
-
 }

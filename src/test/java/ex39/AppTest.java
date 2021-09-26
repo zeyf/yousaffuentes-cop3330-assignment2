@@ -1,27 +1,18 @@
-package ex40;
+package ex39;
 
 import org.junit.Test;
+
 import java.util.ArrayList;
 import java.util.Map;
+
 import static org.junit.jupiter.api.Assertions.*;
 
+class AppTest {
 
-public class AppTest {
-
-    App ex40 = new App();
-
-    @Test
-    public void test_subStringFind() {
-
-        String mainString = "HelloWorld!", subString = "oWorl";
-
-        // true assertion
-        assertEquals(true, ex40.subStringFind(mainString, subString));
-
-    };
+    App ex39 = new App();
 
     @Test
-    public void test_sortEmployees() {
+    public void sortEmployees() {
 
         ArrayList<Map<String, String>> preSortedEmployees = new ArrayList<Map<String, String>>();
 
@@ -45,7 +36,7 @@ public class AppTest {
                 "Last Name", "Johnson"
         ));
 
-        ex40.sortEmployees(unSortedEmployees, "Last Name");
+        ex39.sortEmployees(unSortedEmployees, "Last Name");
 
         boolean sortedOrder = true;
 

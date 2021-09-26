@@ -1,14 +1,14 @@
 package ex30;
 
 import org.junit.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
-public class AppTest {
-
+class AppTest {
     static App ex30 = new App();
 
     @Test
-    public void test_calculateSum() {
+    public void calculateSum() {
 
         // true assertion
         assertEquals(250, ex30.calculateProduct(50, 5));
